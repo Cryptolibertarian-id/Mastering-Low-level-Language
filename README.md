@@ -38,3 +38,4 @@ A Program need memory to run, **RAM** (Random Access Memory) is used by the prog
 
 So rather than we remember numbered home, we will use object to get the values then we can focus on using objects to store and retrieve values, and not have to worry about where in memory they’re actually being placed.
 
+Objects can be named or unnamed (anonymous). A named object is called a **variable**, and the name of the object is called an **identifier**. 
