@@ -34,4 +34,7 @@ To interact with the data in computer we need a program that can acquire data fr
 
 ## Object & Variable
 
-A Program need memory to run, **RAM** (Random Access Memory) is used by the program.
+A Program need memory to run, **RAM** (Random Access Memory) is used by the program. We can think RAM as a series numbered homes that each homes can be used to hold data while the program is running. Stored data in the memory is called value and to access memory we need indirect way through an object. It's because direct access to memory in C++ is not allowed. Compiler and Operating System is responsible for the object creation.
+
+So rather than we remember numbered home, we will use object to get the values then we can focus on using objects to store and retrieve values, and not have to worry about where in memory they’re actually being placed.
+
