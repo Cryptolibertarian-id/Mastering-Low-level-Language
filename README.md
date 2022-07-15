@@ -3,12 +3,6 @@ Learning Path to C &amp; C++ Programming | With Gun
 
 
 
-
-
-
-
-
-
 # Basic
 
 
@@ -80,7 +74,7 @@ int score { 1.5 }; // error: not all double values fit into an int
 
 ## Initialization
 
-When a variable is defined, you can also provide an initial value for the variable at the same time. This is called **initialization**. The value used to initialize a variable is called an **initializer**. 
+When a variable is defined, you can also provide an initial value for the variable at the same time. This is called **initialization**. The value used to initialize a variable is called an **initializer**. Initialization gives a variable an initial value at the point when it is created. Assignment gives a variable a value at some point after the variable is created.
 
 There are 4 basic ways to initialize variables in C++:
 
@@ -97,4 +91,38 @@ Here we’re assigning a number (1.5) that has a fractional part (the .5 part) t
 int score { 1.5 }; // error: not all double values fit into an int
 ```
 
-Initialization gives a variable an initial value at the point when it is created. Assignment gives a variable a value at some point after the variable is created.
+
+
+### Initialize Multiple Variable
+
+It is possible to define multiple variables *of the same type* in a single statement by separating the names with a comma:
+
+```cpp
+int a = 5, b = 6; // copy initialization
+int c( 7 ), d( 8 ); // direct initialization
+int e { 9 }, f { 10 }; // brace initialization (preferred)
+```
+
+
+
+# Data Types
+
+
+
+## **Bits, bytes, and memory addressing**
+
+The smallest unit of memory is a **binary digit** (also called a **bit**), which can hold a value of 0 or 1. You can think of a bit as being like a traditional light switch -- either the light is off (0), or it is on (1).
+
+Memory is organized into sequential units called **memory addresses** (or **addresses** for short). Similar to how a street address can be used to find a given house on a street, the memory address allows us to find and access the contents of memory at a particular location.
+
+In modern computer architectures, each memory address holds 1 byte of data. A **byte** is a group of bits that are operated on as a unit. The modern standard is that a byte is comprised of 8 sequential bits.
+
+The following picture shows some sequential memory addresses, along with the corresponding byte of data:
+
+<img src="assets/MemoryAddress.PNG" style="zoom:110%;" />
+
+Because all data on a computer is just a sequence of bits, we use a **data type** (often called a “type” for short) to tell the compiler how to interpret the contents of memory in some meaningful way. 
+
+When you give an object a value, the compiler and CPU take care of encoding your value into the appropriate sequence of bits for that data type, which are then stored in memory (remember: memory can only store bits). For example, if you assign an integer object the value *65*, that value is converted to the sequence of bits `0100 0001` and stored in the memory assigned to the object.
+
+Conversely, when the object is evaluated to produce a value, that sequence of bits is reconstituted back into the original value. Meaning that `0100 0001` is converted back into the value *65*.
