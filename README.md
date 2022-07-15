@@ -68,6 +68,16 @@ A type tells the program how to interpret a value in memory.
 
 
 
+## Assignment
+
+After a variable has been defined, you can give it a value (in a separate statement) using the *= operator*. This process is called **copy assignment** (or just **assignment**) for short.
+
+```c++
+int score { 1.5 }; // error: not all double values fit into an int
+```
+
+
+
 ## Initialization
 
 When a variable is defined, you can also provide an initial value for the variable at the same time. This is called **initialization**. The value used to initialize a variable is called an **initializer**. 
@@ -81,3 +91,10 @@ int c( 2 ); // initializer in parenthesis
 int d { 3 }; // initializer in braces
 ```
 
+Here we’re assigning a number (1.5) that has a fractional part (the .5 part) to an integer variable. Copy and direct initialization would drop the fractional part, resulting in initialization of value 4 into variable *score*. However, with brace initialization, this will cause the compiler to issue an error (which is generally a good thing, because losing data is rarely desired). 
+
+```c++
+int score { 1.5 }; // error: not all double values fit into an int
+```
+
+Initialization gives a variable an initial value at the point when it is created. Assignment gives a variable a value at some point after the variable is created.
