@@ -39,3 +39,15 @@ A Program need memory to run, **RAM** (Random Access Memory) is used by the prog
 So rather than we remember numbered home, we will use object to get the values then we can focus on using objects to store and retrieve values, and not have to worry about where in memory they’re actually being placed.
 
 Objects can be named or unnamed (anonymous). A named object is called a **variable**, and the name of the object is called an **identifier**. 
+
+
+
+## Variable Instantiation
+
+Here's an example of variable :
+
+```C++
+int hello;
+```
+
+When the program is run it's on runtime mode, when the program is compiled it's called compile time. At the running time hello variable will be instantiated, instantiation mean object will be created and assigned a memory address. An instantiated object is sometimes also called an **instance**.
