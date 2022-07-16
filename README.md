@@ -1,5 +1,36 @@
-# Mastering-Low-level-Language
-Learning Path to C &amp; C++ Programming | With Gun
+# Mastering Low-level Language
+Learning Path to C &amp; C++ Programming | With Gun Gun Febrianza
+
+
+
+# Table of Contents
+
+- Basic
+  - Data
+  - Program
+  - Object & Variable
+  - Variable Instantiation
+  - Data Type
+  - Assignment
+  - Initialization
+    - Initialize Multiple Variable
+- Data Types
+  - Bits, bytes and memory addressing
+  - Fundamental Types
+    - Integral Types
+  - Void
+  - Object Size
+    - Size of The Fundamental Types
+    - The sizeof Operator
+  - Signed Integer
+    - Signed Integer Range
+    - Integer Overflow
+    - Integer Division
+  - Unsigned Integer
+
+
+
+---
 
 
 
@@ -13,6 +44,10 @@ In computing we need to reading, changing, and writing data. **Data** is any inf
 
 
 
+---
+
+
+
 ## Program
 
 To interact with the data in computer we need a program that can acquire data from :
@@ -21,6 +56,10 @@ To interact with the data in computer we need a program that can acquire data fr
 2. From a Network
 3. From a Keyboard
 4. From a Program itself (hardcoded)
+
+
+
+---
 
 
 
@@ -38,6 +77,10 @@ A named object is called a **variable** and variable represent named region of m
 
 
 
+---
+
+
+
 ## Variable Instantiation
 
 Here's an example of variable :
@@ -47,6 +90,10 @@ int hello;
 ```
 
 When the program is run it's on runtime mode, when the program is compiled it's called compile time. At the running time hello variable will be instantiated, instantiation mean object will be created and assigned a memory address. An instantiated object is sometimes also called an **instance**.
+
+
+
+---
 
 
 
@@ -60,6 +107,10 @@ A type tells the program how to interpret a value in memory.
 
 
 
+---
+
+
+
 ## Assignment
 
 After a variable has been defined, you can give it a value (in a separate statement) using the *= operator*. This process is called **copy assignment** (or just **assignment**) for short.
@@ -67,6 +118,10 @@ After a variable has been defined, you can give it a value (in a separate statem
 ```c++
 int score { 1.5 }; // error: not all double values fit into an int
 ```
+
+
+
+---
 
 
 
@@ -91,6 +146,10 @@ int score { 1.5 }; // error: not all double values fit into an int
 
 
 
+---
+
+
+
 ### Initialize Multiple Variable
 
 It is possible to define multiple variables *of the same type* in a single statement by separating the names with a comma:
@@ -100,6 +159,10 @@ int a = 5, b = 6; // copy initialization
 int c( 7 ), d( 8 ); // direct initialization
 int e { 9 }, f { 10 }; // brace initialization (preferred)
 ```
+
+
+
+----
 
 
 
@@ -127,6 +190,10 @@ Conversely, when the object is evaluated to produce a value, that sequence of bi
 
 
 
+---
+
+
+
 ## Fundamental Types
 
 C++ comes with built-in support for many different data types. These are called **fundamental data types**, but are often informally called **basic types**, **primitive types**, or **built-in types**.
@@ -149,6 +216,12 @@ Here is a list of the fundamental data types, some of which you have already see
   - Null Pointer
   - Void
 
+
+
+---
+
+
+
 ### Integral Types
 
 The terms `integer` and `integral` are similar, but have different meanings. An `integer` is a specific data type that hold non-fractional numbers, such as whole numbers, 0, and negative whole numbers. `Integral` means “like an integer”. Most often, `integral` is used as part of the term `integral type`, which includes all of the Boolean, characters, and integer types (also enumerated types.
@@ -158,6 +231,10 @@ The terms `integer` and `integral` are similar, but have different meanings. An 
 C++ also supports a number of other more complex types, called *compound types*.
 
 Most modern programming languages include a fundamental `string` type (strings are a data type that lets us hold a sequence of characters, typically used to represent text). In C++, strings aren’t a fundamental type (they’re a compound type).
+
+
+
+---
 
 
 
@@ -174,6 +251,10 @@ void writeValue(int x) // void here means no return value
     // no return statement, because this function doesn't return a value
 }
 ```
+
+
+
+---
 
 
 
@@ -226,6 +307,10 @@ Second, computers have a finite amount of free memory. Every time we define an o
 
 
 
+---
+
+
+
 ### Size of The Fundamental Types
 
 You may be surprised to find that the size of a given data type is dependent on the compiler and/or the computer architecture!
@@ -250,6 +335,10 @@ C++ only guarantees that each fundamental data types will have a minimum size:
 However, the actual size of the variables may be different on your machine (particularly int, which is more often 4 bytes).
 
 Objects of fundamental data types are generally extremely fast.
+
+
+
+---
 
 
 
@@ -318,3 +407,128 @@ Output :
 x is 4 bytes
 ```
 
+
+
+---
+
+
+
+## Signed Integer 
+
+An **integer** is an integral type that can represent positive and negative whole numbers, including 0 (e.g. -2, -1, 0, 1, 2). C++ has *4* different fundamental integer types available for use:
+
+| Type      | Minimum Size | Note                                      |
+| --------- | ------------ | ----------------------------------------- |
+| short     | 16 bits      |                                           |
+| int       | 16 bits      | Typically 32 bits on modern architectures |
+| long      | 32 bits      |                                           |
+| long long | 64 bits      |                                           |
+
+The key difference between the various integer types is that they have varying sizes -- the larger integers can hold bigger numbers. C++ only guarantees that integers will have a certain minimum size, not that they will have a specific size.
+
+When writing negative numbers in everyday life, we use a negative sign. For example, *-3* means “negative 3”. We’d also typically recognize *+3* as “positive 3” (though common convention dictates that we typically omit plus prefixes). This attribute of being positive, negative, or zero is called the number’s **sign**.
+
+By default, integers are **signed**, which means the number’s sign is stored as part of the number (using a single bit called the **sign bit**). Therefore, a signed integer can hold both positive and negative numbers (and 0).
+
+In this lesson, we’ll focus on signed integers. We’ll discuss unsigned integers (which can only hold non-negative numbers) in the next lesson.
+
+
+
+---
+
+
+
+### Signed Integer Range
+
+As you learned in the last section, a variable with *n* bits can hold 2^n possible values. But which specific values? 
+
+We call the set of specific values that a data type can hold its **range**. The range of an integer variable is determined by two factors: its size (in bits), and whether it is signed or not.
+
+By definition, an 8-bit signed integer has a range of -128 to 127. This means a signed integer can store any integer value between -128 and 127 (inclusive) safely.
+
+Math time: an 8-bit integer contains 8 bits. 28 is 256, so an 8-bit integer can hold 256 possible values. There are 256 possible values between -128 to 127, inclusive.
+
+Here’s a table containing the range of signed integers of different sizes:
+
+| Size / Type   | Range                                                   |
+| ------------- | ------------------------------------------------------- |
+| 8 bit signed  | -128 to 127                                             |
+| 16 bit signed | -32,768 to 32,767                                       |
+| 32 bit signed | -2,147,483,648 to 2,147,483,647                         |
+| 64 bit signed | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
+
+For the math inclined, an n-bit signed variable has a range of -(2^n-1) to 2(^n-1)-1.
+
+
+
+---
+
+
+
+### Integer Overflow
+
+What happens if we try to assign the value *280* to an 8-bit signed integer? This number is outside the range that a 8-bit signed integer can hold. The number 280 requires 9 bits (plus 1 sign bit) to be represented, but we only have 7 bits (plus 1 sign bit) available in a 8-bit signed integer.
+
+**Integer overflow** (often called *overflow* for short) occurs when we try to store a value that is outside the range of the type. Essentially, the number we are trying to store requires more bits to represent than the object has available. In such a case, data is lost because the object doesn’t have enough memory to store everything.
+
+In the case of signed integers, which bits are lost is not well defined, thus signed integer overflow leads to undefined behavior.
+
+In general, overflow results in information being lost, which is almost never desirable. If there is *any* suspicion that an object might need to store a value that falls outside its range, use a type with a bigger range!
+
+
+
+---
+
+
+
+### Integer Division
+
+When dividing two integers, C++ works like you’d expect when the quotient is a whole number:
+
+```C++
+#include <iostream>
+
+int main()
+{
+    std::cout << 20 / 4;
+    return 0;
+}
+```
+
+This produces the expected result:
+
+```
+5
+```
+
+But let’s look at what happens when integer division causes a fractional result:
+
+```C++
+#include <iostream>
+
+int main()
+{
+    std::cout << 8 / 5;
+    return 0;
+}
+```
+
+This produces a possibly unexpected result:
+
+```
+1
+```
+
+When doing division with two integers (called **integer division**), C++ always produces an integer result. Since integers can’t hold fractional values, any fractional portion is simply dropped (not rounded!).
+
+Taking a closer look at the above example, 8 / 5 produces the value 1.6. The fractional part (0.6) is dropped, and the result of 1 remains.
+
+Similarly, -8 / 5 results in the value -1.
+
+
+
+---
+
+
+
+## Unsigned Integer
