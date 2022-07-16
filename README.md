@@ -126,3 +126,31 @@ Because all data on a computer is just a sequence of bits, we use a **data type*
 When you give an object a value, the compiler and CPU take care of encoding your value into the appropriate sequence of bits for that data type, which are then stored in memory (remember: memory can only store bits). For example, if you assign an integer object the value *65*, that value is converted to the sequence of bits `0100 0001` and stored in the memory assigned to the object.
 
 Conversely, when the object is evaluated to produce a value, that sequence of bits is reconstituted back into the original value. Meaning that `0100 0001` is converted back into the value *65*.
+
+
+
+## Fundamental Types
+
+C++ comes with built-in support for many different data types. These are called **fundamental data types**, but are often informally called **basic types**, **primitive types**, or **built-in types**.
+
+Here is a list of the fundamental data types, some of which you have already seen:
+
+- Category
+  - Floating Point
+    - float
+    - double
+    - long double
+  - Integral
+    - Boolean
+    - Char
+    - Integer
+      - short
+      - int
+      - long
+      - long long
+  - Null Pointer
+  - Void
+
+C++ also supports a number of other more complex types, called *compound types*.
+
+Most modern programming languages include a fundamental `string` type (strings are a data type that lets us hold a sequence of characters, typically used to represent text). In C++, strings aren’t a fundamental type (they’re a compound type).
