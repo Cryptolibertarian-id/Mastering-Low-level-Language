@@ -26,17 +26,15 @@ To interact with the data in computer we need a program that can acquire data fr
 
 ## Object & Variable
 
-A Program need memory to run, **RAM** (Random Access Memory) is used by the program. We can think RAM as a series numbered homes that each homes can be used to hold data while the program is running. Stored data in the memory is called value and to access memory we need indirect way through an object. It's because direct access to memory in C++ is not allowed. Compiler and Operating System is responsible for the object creation.
+A Program need memory to run, **RAM** (Random Access Memory) is used by the program. We can think RAM as a series numbered homes that each homes can be used to hold data while the program is running. 
+
+Stored data in the memory is called value and to access memory we need indirect way through an object. It's because direct access to memory in C++ is not allowed. Compiler and Operating System is responsible for the object creation.
 
 So rather than we remember numbered home, we will use object to get the values then we can focus on using objects to store and retrieve values, and not have to worry about where in memory they’re actually being placed.
 
-Objects can be named or unnamed (anonymous). A named object is called a **variable**, and the name of the object is called an **identifier**. 
+Objects can be named or unnamed (anonymous). 
 
-A variable is a named region of memory.
-
-A value is a single piece of data stored in memory.
-
-An identifier is the name that a variable is accessed by.
+A named object is called a **variable** and variable represent named region of memory. The name of the object is called an **identifier**, an identifier is also the name that a variable is accessed by.
 
 
 
@@ -175,5 +173,148 @@ void writeValue(int x) // void here means no return value
     std::cout << "The value of x is: " << x << '\n';
     // no return statement, because this function doesn't return a value
 }
+```
+
+
+
+## Object Size
+
+Memory on modern machines is typically organized into byte-sized units, with each byte of memory having a unique address. 
+
+Up to this point, it has been useful to think of memory as a bunch of cubbyholes or mailboxes where we can put and retrieve information, and variables as names for accessing those cubbyholes or mailboxes. The amount of memory that an object uses is based on its data type.
+
+Because we typically access memory through variable names (and not directly via memory addresses), the compiler is able to hide the details of how many bytes a given object uses from us. When we access some variable *x*, the compiler knows how many bytes of data to retrieve (based on the type of variable *x*), and can handle that task for us.
+
+Even so, there are several reasons it is useful to know how much memory an object uses.
+
+First, the more memory an object uses, the more information it can hold.
+
+A single bit can hold 2 possible values, a 0, or a 1:
+
+| bit 0 |
+| ----- |
+| 0     |
+| 1     |
+
+2 bits can hold 4 possible values:
+
+| bit 0 | bit 1 |
+| ----- | ----- |
+| 0     | 0     |
+| 0     | 1     |
+| 1     | 0     |
+| 1     | 1     |
+
+3 bits can hold 8 possible values:
+
+| bit 0 | bit 1 | bit 2 |
+| ----- | ----- | ----- |
+| 0     | 0     | 0     |
+| 0     | 0     | 1     |
+| 0     | 1     | 0     |
+| 0     | 1     | 1     |
+| 1     | 0     | 0     |
+| 1     | 0     | 1     |
+| 1     | 1     | 0     |
+| 1     | 1     | 1     |
+
+To generalize, an object with *n* bits (where n is an integer) can hold 2n (2 to the power of n, also commonly written 2^n) unique values. Therefore, with an 8-bit byte, a byte-sized object can hold 28 (256) different values. An object that uses 2 bytes can hold 2^16 (65536) different values!
+
+The size of the object puts a limit on the amount of unique values it can store -- objects that utilize more bytes can store a larger number of unique values.
+
+Second, computers have a finite amount of free memory. Every time we define an object, a small portion of that free memory is used for as long as the object is in existence. Because modern computers have a lot of memory, this impact is usually negligible. However, for programs that need a large amount of objects or data (e.g. a game that is rendering millions of polygons), the difference between using 1 byte and 8 byte objects can be significant.
+
+
+
+### Size of The Fundamental Types
+
+You may be surprised to find that the size of a given data type is dependent on the compiler and/or the computer architecture!
+
+C++ only guarantees that each fundamental data types will have a minimum size:
+
+| Category       | Type        | Minimum Size | Note                  |
+| -------------- | ----------- | ------------ | --------------------- |
+| boolean        | bool        | 1 byte       |                       |
+| character      | char        | 1 byte       | Always exactly 1 byte |
+|                | wchar_t     | 1 byte       |                       |
+|                | char16_t    | 2 bytes      |                       |
+|                | char32_t    | 4 bytes      |                       |
+| integer        | short       | 2 bytes      |                       |
+|                | int         | 2 bytes      |                       |
+|                | long        | 4 bytes      |                       |
+|                | long long   | 4 bytes      |                       |
+| floating point | float       | 4 bytes      |                       |
+|                | double      | 4 bytes      |                       |
+|                | long double | 4 bytes      |                       |
+
+However, the actual size of the variables may be different on your machine (particularly int, which is more often 4 bytes).
+
+Objects of fundamental data types are generally extremely fast.
+
+
+
+### The sizeof Operator
+
+In order to determine the size of data types on a particular machine, C++ provides an operator named *sizeof*. The **sizeof operator** is a unary operator that takes either a type or a variable, and returns its size in bytes. You can compile and run the following program to find out how large some of your data types are:
+
+```C++
+#include <iostream>
+
+int main()
+{
+    std::cout << "bool:\t\t" << sizeof(bool) << " bytes\n";
+    std::cout << "char:\t\t" << sizeof(char) << " bytes\n";
+    std::cout << "wchar_t:\t" << sizeof(wchar_t) << " bytes\n";
+    std::cout << "char16_t:\t" << sizeof(char16_t) << " bytes\n";
+    std::cout << "char32_t:\t" << sizeof(char32_t) << " bytes\n";
+    std::cout << "short:\t\t" << sizeof(short) << " bytes\n";
+    std::cout << "int:\t\t" << sizeof(int) << " bytes\n";
+    std::cout << "long:\t\t" << sizeof(long) << " bytes\n";
+    std::cout << "long long:\t" << sizeof(long long) << " bytes\n";
+    std::cout << "float:\t\t" << sizeof(float) << " bytes\n";
+    std::cout << "double:\t\t" << sizeof(double) << " bytes\n";
+    std::cout << "long double:\t" << sizeof(long double) << " bytes\n";
+
+    return 0;
+}
+```
+
+Here is the output from the author’s x64 machine, using Embarcadero Dev C++ 6.3 :
+
+```
+bool:           1 bytes
+char:           1 bytes
+wchar_t:        2 bytes
+char16_t:       2 bytes
+char32_t:       4 bytes
+short:          2 bytes
+int:            4 bytes
+long:           4 bytes
+long long:      8 bytes
+float:          4 bytes
+double:         8 bytes
+long double:    16 bytes
+```
+
+Your results may vary if you are using a different type of machine, or a different compiler. Note that you can not use the *sizeof* operator on the *void* type, since it has no size (doing so will cause a compile error).
+
+You can also use the *sizeof* operator on a variable name:
+
+```c++
+#include <iostream>
+
+int main()
+{
+    int x{};
+    std::cout << "x is " << sizeof(x) << " bytes\n";
+
+    return 0;
+}
+```
+
+Output :
+
+```
+x is 4 bytes
 ```
 
