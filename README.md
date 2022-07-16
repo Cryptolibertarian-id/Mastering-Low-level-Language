@@ -151,6 +151,12 @@ Here is a list of the fundamental data types, some of which you have already see
   - Null Pointer
   - Void
 
+### Integral Types
+
+The terms `integer` and `integral` are similar, but have different meanings. An `integer` is a specific data type that hold non-fractional numbers, such as whole numbers, 0, and negative whole numbers. `Integral` means “like an integer”. Most often, `integral` is used as part of the term `integral type`, which includes all of the Boolean, characters, and integer types (also enumerated types.
+
+`Integral type` are named so because they are stored in memory as integers, even though their behaviors might vary
+
 C++ also supports a number of other more complex types, called *compound types*.
 
 Most modern programming languages include a fundamental `string` type (strings are a data type that lets us hold a sequence of characters, typically used to represent text). In C++, strings aren’t a fundamental type (they’re a compound type).
