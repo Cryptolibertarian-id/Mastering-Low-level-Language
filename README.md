@@ -23,10 +23,12 @@ Learning Path to C &amp; C++ Programming | With Gun Gun Febrianza
     - Size of The Fundamental Types
     - The sizeof Operator
   - Signed Integer
+    - Defining signed integers
     - Signed Integer Range
     - Integer Overflow
     - Integer Division
   - Unsigned Integer
+    - Defining unsigned integers
 
 
 
@@ -40,7 +42,15 @@ Learning Path to C &amp; C++ Programming | With Gun Gun Febrianza
 
 ## Data
 
-In computing we need to reading, changing, and writing data. **Data** is any information that can be moved, processed, or stored by a computer. 
+In computing we need to reading, changing, and writing data. **Data** is any information that can be moved, processed, or stored by a computer. Data in computers is represented in the form of **Binary Digits** (bits), the smallest unit of information in a computer machine. 
+
+Each bit can store one value of the **binary number**, i.e. 0 or 1, a set of bits forms could construct Digital Data. If there are 8 bits collected it will form a **Binary Term** or **Byte**.
+
+At the byte level, it has formed a unit of storage that can store a single character. One byte of data can store 1 character for example: 'A' or 'x' or '$'.
+
+A series of bytes are used to create Binary Files, in binary files there is a series of bytes that are created to represent more than just characters or text. At higher levels (kilobytes, megabytes, gigabytes & terabytes) these bits can be used to represent text, images, sound and video.
+
+Data in the context of programming is a set of bits that represent information.
 
 
 
@@ -438,6 +448,23 @@ In this lesson, we’ll focus on signed integers. We’ll discuss unsigned integ
 
 
 
+### Defining signed integers
+
+Here is the preferred way to define the four types of signed integers:
+
+```c++
+short s;
+int i;
+long l;
+long long ll;
+```
+
+
+
+---
+
+
+
 ### Signed Integer Range
 
 As you learned in the last section, a variable with *n* bits can hold 2^n possible values. But which specific values? 
@@ -532,3 +559,19 @@ Similarly, -8 / 5 results in the value -1.
 
 
 ## Unsigned Integer
+
+C++ also supports unsigned integers. **Unsigned integers** are integers that can only hold non-negative whole numbers.
+
+
+
+### Defining unsigned integers
+
+To define an unsigned integer, we use the *unsigned* keyword. By convention, this is placed before the type:
+
+```c++
+unsigned short us;
+unsigned int ui;
+unsigned long ul;
+unsigned long long ull;
+```
+
