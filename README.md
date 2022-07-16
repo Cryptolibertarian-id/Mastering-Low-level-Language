@@ -135,7 +135,7 @@ C++ comes with built-in support for many different data types. These are called 
 
 Here is a list of the fundamental data types, some of which you have already seen:
 
-- Category
+- Type Categories
   - Floating Point
     - float
     - double
@@ -160,3 +160,20 @@ The terms `integer` and `integral` are similar, but have different meanings. An 
 C++ also supports a number of other more complex types, called *compound types*.
 
 Most modern programming languages include a fundamental `string` type (strings are a data type that lets us hold a sequence of characters, typically used to represent text). In C++, strings aren’t a fundamental type (they’re a compound type).
+
+
+
+## Void
+
+**Void** means “no type”
+
+Most commonly, *void* is used to indicate that a function does not return a value:
+
+```C++
+void writeValue(int x) // void here means no return value
+{
+    std::cout << "The value of x is: " << x << '\n';
+    // no return statement, because this function doesn't return a value
+}
+```
+
