@@ -39,6 +39,7 @@ There is a convention :
     - Defining unsigned integers
     - Unsigned Integer Range
     - Unsigned Integer Overflow
+      - Modulo Wrapping
 
 
 
