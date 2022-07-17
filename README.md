@@ -42,15 +42,15 @@ Learning Path to C &amp; C++ Programming | With Gun Gun Febrianza
 
 ## Data
 
-In computing we need to reading, changing, and writing data. **Data** is any information that can be moved, processed, or stored by a computer. Data in computers is represented in the form of **Binary Digits** (bits), the smallest unit of information in a computer machine. 
+**In computing we need to reading, changing, and writing data. Data is any information that can be moved, processed, or stored by a computer. Data in computers is represented in the form of Binary Digits (bits), the smallest unit of information in a computer machine.** 
 
-Each bit can store one value of the **binary number**, i.e. 0 or 1, a set of bits forms could construct Digital Data. If there are 8 bits collected it will form a **Binary Term** or **Byte**.
+**Each bit can store one value of the binary number, i.e. 0 or 1, a set of bits forms could construct Digital Data. If there are 8 bits collected it will form a Binary Term or Byte.**
 
-At the byte level, it has formed a unit of storage that can store a single character. One byte of data can store 1 character for example: 'A' or 'x' or '$'.
+**At the byte level, it has formed a unit of storage that can store a single character. One byte of data can store 1 character for example: 'A' or 'x' or '$'.**
 
-A series of bytes are used to create Binary Files, in binary files there is a series of bytes that are created to represent more than just characters or text. At higher levels (kilobytes, megabytes, gigabytes & terabytes) these bits can be used to represent text, images, sound and video.
+**A series of bytes are used to create Binary Files, in binary files there is a series of bytes that are created to represent more than just characters or text. At higher levels (kilobytes, megabytes, gigabytes & terabytes) these bits can be used to represent text, images, sound and video.**
 
-Data in the context of programming is a set of bits that represent information.
+**Data in the context of programming is a set of bits that represent information.**
 
 
 
@@ -60,12 +60,12 @@ Data in the context of programming is a set of bits that represent information.
 
 ## Program
 
-To interact with the data in computer we need a program that can acquire data from :
+**To interact with the data in computer we need a program that can acquire data from :**
 
-1. From a Database
-2. From a Network
-3. From a Keyboard
-4. From a Program itself (hardcoded)
+1. **From a Database**
+2. **From a Network**
+3. **From a Keyboard**
+4. **From a Program itself (hardcoded)**
 
 
 
@@ -75,7 +75,7 @@ To interact with the data in computer we need a program that can acquire data fr
 
 ## Object & Variable
 
-A Program need memory to run, when a program is running, data must be stored in a **RAM** (Random Access Memory). The RAM itself is just a huge array of bytes. We can think RAM as a series numbered homes that each homes can be used to hold data while the program is running. 
+**A Program need memory to run, when a program is running, data must be stored in a RAM (Random Access Memory). The RAM itself is just a huge array of bytes. We can think RAM as a series numbered homes that each homes can be used to hold data while the program is running.** 
 
 Stored data in the memory is called value. To access memory we need indirect way through an object. It's because direct access to memory in C++ is not allowed. Compiler and Operating System is responsible for the object creation.
 
@@ -577,3 +577,17 @@ unsigned long ul;
 unsigned long long ull;
 ```
 
+A 1-byte unsigned integer has a range of 0 to 255. Compare this to the 1-byte signed integer range of -128 to 127. Both can store 256 different values, but signed integers use half of their range for negative numbers, whereas unsigned integers can store positive numbers that are twice as large.
+
+Here’s a table showing the range for unsigned integers:
+
+| Size/Type       | Range                           |
+| :-------------- | :------------------------------ |
+| 1 byte unsigned | 0 to 255                        |
+| 2 byte unsigned | 0 to 65,535                     |
+| 4 byte unsigned | 0 to 4,294,967,295              |
+| 8 byte unsigned | 0 to 18,446,744,073,709,551,615 |
+
+An n-bit unsigned variable has a range of 0 to (2^n^)-1. 
+
+When no negative numbers are required, unsigned integers are well-suited for networking and systems with little memory, because unsigned integers can store more positive numbers without taking up extra memory.
