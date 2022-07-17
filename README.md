@@ -75,9 +75,9 @@ To interact with the data in computer we need a program that can acquire data fr
 
 ## Object & Variable
 
-A Program need memory to run, **RAM** (Random Access Memory) is used by the program. We can think RAM as a series numbered homes that each homes can be used to hold data while the program is running. 
+A Program need memory to run, when a program is running, data must be stored in a **RAM** (Random Access Memory). The RAM itself is just a huge array of bytes. We can think RAM as a series numbered homes that each homes can be used to hold data while the program is running. 
 
-Stored data in the memory is called value and to access memory we need indirect way through an object. It's because direct access to memory in C++ is not allowed. Compiler and Operating System is responsible for the object creation.
+Stored data in the memory is called value. To access memory we need indirect way through an object. It's because direct access to memory in C++ is not allowed. Compiler and Operating System is responsible for the object creation.
 
 So rather than we remember numbered home, we will use object to get the values then we can focus on using objects to store and retrieve values, and not have to worry about where in memory they’re actually being placed.
 
@@ -109,7 +109,7 @@ When the program is run it's on runtime mode, when the program is compiled it's 
 
 ## Data Type
 
- A **data type** (more commonly just called a **type**) tells the compiler what type of value that will be stored to variable. Our variable **hello** was given type *int* to represent an integer value, so we can call hello as *integer variable*. 
+A **data type** (more commonly just called a **type**) tells the compiler what type of value that will be stored to variable. Types are a set of values recognized by the compiler to specify how the data should be used. In above example before, our variable **hello** was given type **int** to represent an integer value, so we can call hello as **integer variable**. 
 
 Integer variable can only hold integer values.
 
@@ -192,7 +192,7 @@ The following picture shows some sequential memory addresses, along with the cor
 
 <img src="assets/MemoryAddress.PNG" style="zoom:110%;" />
 
-Because all data on a computer is just a sequence of bits, we use a **data type** (often called a “type” for short) to tell the compiler how to interpret the contents of memory in some meaningful way. 
+All data on a computer is represented as sequence of bits, we use a **data type** to tell the compiler how to interpret the contents of memory in some meaningful way. 
 
 When you give an object a value, the compiler and CPU take care of encoding your value into the appropriate sequence of bits for that data type, which are then stored in memory (remember: memory can only store bits). For example, if you assign an integer object the value *65*, that value is converted to the sequence of bits `0100 0001` and stored in the memory assigned to the object.
 
@@ -425,7 +425,9 @@ x is 4 bytes
 
 ## Signed Integer 
 
-An **integer** is an integral type that can represent positive and negative whole numbers, including 0 (e.g. -2, -1, 0, 1, 2). C++ has *4* different fundamental integer types available for use:
+An **integer** is an integral type that can represent positive and negative whole numbers, including 0 (e.g. -2, -1, 0, 1, 2). 
+
+C++ has *4* different fundamental integer types available for use:
 
 | Type      | Minimum Size | Note                                      |
 | --------- | ------------ | ----------------------------------------- |
