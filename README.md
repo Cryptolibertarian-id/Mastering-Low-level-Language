@@ -3,6 +3,14 @@ Learning Path to C &amp; C++ Programming | With Gun Gun Febrianza
 
 
 
+**This Markdown written with Typora editor**
+
+There is a convention :
+
+- 2^8^ meaning 2 exponent 8
+
+
+
 # Table of Contents
 
 - Basic
@@ -29,6 +37,8 @@ Learning Path to C &amp; C++ Programming | With Gun Gun Febrianza
     - Integer Division
   - Unsigned Integer
     - Defining unsigned integers
+    - Unsigned Integer Range
+    - Unsigned Integer Overflow
 
 
 
@@ -579,6 +589,14 @@ unsigned long long ull;
 
 A 1-byte unsigned integer has a range of 0 to 255. Compare this to the 1-byte signed integer range of -128 to 127. Both can store 256 different values, but signed integers use half of their range for negative numbers, whereas unsigned integers can store positive numbers that are twice as large.
 
+
+
+---
+
+
+
+### Unsigned Integer Range
+
 Here’s a table showing the range for unsigned integers:
 
 | Size/Type       | Range                           |
@@ -591,3 +609,79 @@ Here’s a table showing the range for unsigned integers:
 An n-bit unsigned variable has a range of 0 to (2^n^)-1. 
 
 When no negative numbers are required, unsigned integers are well-suited for networking and systems with little memory, because unsigned integers can store more positive numbers without taking up extra memory.
+
+
+
+---
+
+
+
+### Unsigned Integer Overflow
+
+What happens if we try to store the number 280 (which requires 9 bits to represent) in a 1-byte (8-bit) unsigned integer? The answer is overflow.
+
+If an unsigned value is out of range, it is divided by one greater than the largest number of the type, and only the remainder kept.
+
+The number 280 is too big to fit in our 1-byte range of 0 to 255. 1 greater than the largest number of the type is 256. Therefore, we divide 280 by 256, getting 1 remainder 24. The remainder of 24 is what is stored.
+
+#### Modulo Wrapping
+
+Here’s another way to think about the same thing. Any number bigger than the largest number representable by the type simply “wraps around” (sometimes called “modulo wrapping”). 255 is in range of a 1-byte integer, so 255 is fine. 256, however, is outside the range, so it wraps around to the value 0. 257 wraps around to the value 1. 280 wraps around to the value 24.
+
+Let’s take a look at this using 2-byte shorts:
+
+```c++
+#include <iostream>
+
+int main()
+{
+    unsigned short x{ 65535 }; // largest 16-bit unsigned value possible
+    std::cout << "x was: " << x << '\n';
+
+    x = 65536; // 65536 is out of our range, so we get wrap-around
+    std::cout << "x is now: " << x << '\n';
+
+    x = 65537; // 65537 is out of our range, so we get wrap-around
+    std::cout << "x is now: " << x << '\n';
+
+    return 0;
+}
+```
+
+Output :
+
+```
+x was: 65535
+x is now: 0
+x is now: 1
+```
+
+It’s possible to wrap around the other direction as well. 0 is representable in a 2-byte unsigned integer, so that’s fine. -1 is not representable, so it wraps around to the top of the range, producing the value 65535. -2 wraps around to 65534. And so forth.
+
+```c++
+#include <iostream>
+
+int main()
+{
+    unsigned short x{ 0 }; // smallest 2-byte unsigned value possible
+    std::cout << "x was: " << x << '\n';
+
+    x = -1; // -1 is out of our range, so we get wrap-around
+    std::cout << "x is now: " << x << '\n';
+
+    x = -2; // -2 is out of our range, so we get wrap-around
+    std::cout << "x is now: " << x << '\n';
+
+    return 0;
+}
+```
+
+Output :
+
+```
+x was: 0
+x is now: 65535
+x is now: 65534
+```
+
+The above code triggers a warning in some compilers, because the compiler detects that the integer literal is out-of-range for the given type. If you want to compile the code anyway, temporarily disable “Treat warnings as errors”.
