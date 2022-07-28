@@ -320,7 +320,7 @@ A single bit can hold 2 possible values, a 0, or a 1:
 | 1     | 1     | 0     |
 | 1     | 1     | 1     |
 
-To generalize, an object with *n* bits (where n is an integer) can hold 2n (2 to the power of n, also commonly written 2^n) unique values. Therefore, with an 8-bit byte, a byte-sized object can hold 28 (256) different values. An object that uses 2 bytes can hold 2^16 (65536) different values!
+To generalize, an object with *n* bits (where n is an integer) can hold 2^n^ (2 to the power of n, also commonly written 2^n^) unique values. Therefore, with an 8-bit byte, a byte-sized object can hold 2^8^ (256) different values. An object that uses 2 bytes can hold 2^16^ (65536) different values!
 
 The size of the object puts a limit on the amount of unique values it can store -- objects that utilize more bytes can store a larger number of unique values.
 
@@ -480,7 +480,7 @@ long long ll;
 
 ### Signed Integer Range
 
-As you learned in the last section, a variable with *n* bits can hold 2^n possible values. But which specific values? 
+As you learned in the last section, a variable with *n* bits can hold 2^n^ possible values. But which specific values? 
 
 We call the set of specific values that a data type can hold its **range**. The range of an integer variable is determined by two factors: its size (in bits), and whether it is signed or not.
 
@@ -497,7 +497,7 @@ Here’s a table containing the range of signed integers of different sizes:
 | 32 bit signed | -2,147,483,648 to 2,147,483,647                         |
 | 64 bit signed | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
 
-For the math inclined, an n-bit signed variable has a range of -(2^n-1) to 2(^n-1)-1.
+For the math inclined, an n-bit signed variable has a range of -(2^n-1^) to 2(^n^-1)-1.
 
 
 
